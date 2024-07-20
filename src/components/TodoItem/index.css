@@ -9,26 +9,105 @@
   margin-bottom: 20px;
 }
 
+.checkbox-title-card {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-input {
+  height: 12px;
+  width: 12px;
+  cursor: pointer;
+  outline: none;
+  margin-right: 12px;
+}
+
 .subheading {
   color: #000000;
   font-family: 'Roboto';
-  font-size: 20px;
+  font-size: 12px;
   font-weight: 500;
-  margin-right: 20px;
-  max-width: 300px;
+}
+
+.item-button-card {
+  display: flex;
+  align-items: center;
 }
 
 .button {
   color: #ff0b37;
   font-family: 'Roboto';
-  font-size: 16px;
-  height: 40px;
-  width: 100px;
+  font-size: 12px;
+  height: 22px;
+  width: 60px;
   border: 2px solid #ff0b37;
   border-radius: 12px;
   background-color: #ffffff;
   cursor: pointer;
   outline: none;
+}
+
+.edit-button {
+  width: 40px;
+  margin-right: 12px;
+  margin-left: 10px;
+}
+
+.edit-input {
+  color: #000000;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #d0d2d6;
+  border-radius: 4px;
+  padding: 10px;
+  height: 30px;
+  width: 70%;
+}
+
+.save-button {
+  width: 50px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 576px) {
+  .checkbox-input {
+    height: 14px;
+    width: 14px;
+    margin-right: 12px;
+  }
+
+  .subheading {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .button {
+    font-size: 16px;
+    height: 30px;
+    width: 70px;
+  }
+
+  .edit-button {
+    width: 50px;
+    margin-right: 12px;
+    margin-left: 20px;
+  }
+
+  .edit-input {
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px;
+    height: 40px;
+    width: 70%;
+    margin-top: 14px;
+    margin-bottom: 14px;
+  }
+
+  .save-button {
+    width: 60px;
+    font-size: 16px;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -40,6 +119,40 @@
   .subheading {
     font-size: 24px;
     max-width: 350px;
+  }
+
+  
+  .checkbox-input {
+    height: 16px;
+    width: 16px;
+    margin-right: 14px;
+  }
+
+  .button {
+    font-size: 20px;
+    height: 30px;
+    width: 70px;
+  }
+
+  .edit-button {
+    width: 60px;
+    margin-right: 12px;
+    margin-left: 20px;
+  }
+
+  .edit-input {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 14px;
+    height: 50px;
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .save-button {
+    width: 70px;
+    font-size: 20px;
   }
 
   .button {

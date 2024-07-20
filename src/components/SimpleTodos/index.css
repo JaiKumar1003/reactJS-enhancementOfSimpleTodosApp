@@ -28,7 +28,7 @@
 .main-heading {
   color: #ff8542;
   font-family: 'Roboto';
-  font-size: 36px;
+  font-size: 20px;
   font-weight: bold;
   text-align: center;
 }
@@ -38,9 +38,82 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0px;
+}
+
+.user-input-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+  align-self: center;
+}
+
+.user-input {
+  color: #000000;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid #d0d2d6;
+  border-radius: 4px;
+  padding: 10px;
+  height: 30px;
+  width: 70%;
+}
+
+.add-button {
+  background-color: #ffc2a0;
+  font-family: 'Roboto';
+  font-size: 12px;
+  font-weight: 500;
+  color: #000000;
+  border: 0px;
+  border-radius: 4px;
+  height: 30px;
+  width: 60px;
+  cursor: pointer;
+  outline: none;
+}
+
+@media screen and (min-width: 576px) {
+  .main-heading {
+    font-size: 30px;
+    margin-bottom: 18px;
+  }
+
+  .user-input {
+    font-size: 16px;
+    padding: 12px;
+    height: 40px;
+    width: 80%;
+  }
+
+  .add-button {
+    font-size: 16px;
+    height: 40px;
+    width: 60px;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  .user-input-card {
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 26px;
+  }
+
+  .user-input {
+    font-size: 20px;
+    padding: 14px;
+    height: 56px;
+    width: 80%;
+  }
+
+  .add-button {
+    font-size: 20px;
+    height: 56px;
+    width: 70px;
+  }
   .bg-container {
     padding-top: 50px;
     padding-bottom: 50px;
