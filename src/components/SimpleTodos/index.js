@@ -1,7 +1,5 @@
 import {Component} from 'react'
-
 import {v4 as uuidv4} from 'uuid'
-
 import TodoItem from '../TodoItem'
 import './index.css'
 
@@ -56,8 +54,6 @@ const initialTodosList = [
   },
 ]
 
-// Write your code here
-
 class SimpleTodos extends Component {
   state = {todosList: initialTodosList, userText: ''}
 
@@ -66,7 +62,6 @@ class SimpleTodos extends Component {
     const removedList = todosList.filter(
       eachObject => eachObject.id !== uniqueNo,
     )
-
     this.setState({todosList: removedList})
   }
 
@@ -74,52 +69,71 @@ class SimpleTodos extends Component {
     this.setState({userText: event.target.value})
   }
 
+  isDigit = value =>
+    typeof value === 'string' &&
+    !Number.isNaN(parseInt(value)) &&
+    parseInt(value).toString() === value
+
   onClickAddBtn = () => {
     const {userText} = this.state
     if (userText !== '') {
-      this.setState(prevState => ({
-        todosList: [
-          ...prevState.todosList,
-          {id: uuidv4(), title: userText, isEdited: true, isChecked: false},
-        ],
-        userText: '',
-      }))
+      const userTextList = userText.split(' ')
+      const findLastItem = userTextList[userTextList.length - 1]
+      const findIsDigitOrNot = this.isDigit(findLastItem)
+
+      if (findIsDigitOrNot && userTextList.length > 1) {
+        const newUserText = userTextList
+          .slice(0, userTextList.length - 1)
+          .join(' ')
+        this.setState(prevState => {
+          const newTodos = Array.from({length: parseInt(findLastItem)}, () => ({
+            id: uuidv4(),
+            title: newUserText,
+            isEdited: true,
+            isChecked: false,
+          }))
+          return {
+            todosList: [...prevState.todosList, ...newTodos],
+            userText: '',
+          }
+        })
+      } else {
+        this.setState(prevState => ({
+          todosList: [
+            ...prevState.todosList,
+            {id: uuidv4(), title: userText, isEdited: true, isChecked: false},
+          ],
+          userText: '',
+        }))
+      }
     }
   }
 
   onClickEditBtn = editId => {
     const {todosList} = this.state
-    const updatedTodoList = todosList.map(eachItem => {
-      if (eachItem.id === editId) {
-        return {...eachItem, isEdited: false}
-      }
-      return eachItem
-    })
-
+    const updatedTodoList = todosList.map(eachItem =>
+      eachItem.id === editId ? {...eachItem, isEdited: false} : eachItem,
+    )
     this.setState({todosList: updatedTodoList})
   }
 
   onClickSaveBtn = (editId, editTitle) => {
     const {todosList} = this.state
-    const updatedTodoList = todosList.map(eachItem => {
-      if (eachItem.id === editId) {
-        return {...eachItem, title: editTitle, isEdited: true}
-      }
-      return eachItem
-    })
-
+    const updatedTodoList = todosList.map(eachItem =>
+      eachItem.id === editId
+        ? {...eachItem, title: editTitle, isEdited: true}
+        : eachItem,
+    )
     this.setState({todosList: updatedTodoList})
   }
 
   onClickCheckbox = id => {
     const {todosList} = this.state
-    const updatedTodoList = todosList.map(eachItem => {
-      if (eachItem.id === id) {
-        return {...eachItem, isChecked: !eachItem.isChecked}
-      }
-      return eachItem
-    })
-
+    const updatedTodoList = todosList.map(eachItem =>
+      eachItem.id === id
+        ? {...eachItem, isChecked: !eachItem.isChecked}
+        : eachItem,
+    )
     this.setState({todosList: updatedTodoList})
   }
 

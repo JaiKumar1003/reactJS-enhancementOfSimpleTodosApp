@@ -5,7 +5,6 @@ import './index.css'
 
 const TodoItem = props => {
   const {
-    todosList,
     todoItem,
     deleteTodoList,
     editTodoItem,
